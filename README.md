@@ -22,6 +22,29 @@ Microsoft 365 includes 100 sensitive Information Types up to now. While this a g
 
 ### Installing
 
+
+#####variable#####
+
+$locatie="directory where files are located"
+
+####create keywords#####
+
+$fileData2 = Get-Content $locatie\termen_healthcare.txt -Encoding Byte -ReadCount 0
+New-DlpKeywordDictionary -Name "termen_healthcare_cure1" -Description "healthcare cure termen" -FileData $fileData2
+
+$fileData = Get-Content $locatie\Keyword_netherlands_zipcode_cities.txt -Encoding Byte -ReadCount 0
+New-DlpKeywordDictionary -Name Keyword_netherlands_zipcode_cities -Description "list of all dutch cities" -FileData $fileData
+
+Get-DlpKeywordDictionary | select name,identity
+
+####inlezen sensitive information sets#####
+
+New-DlpSensitiveInformationTypeRulePackage -FileData (Get-Content -Path $locatie\HealthCare.xml -Encoding Byte)
+
+###update rulepack######
+
+Set-DlpSensitiveInformationTypeRulePackage -FileData ([Byte[]]$(Get-Content -Path $locatie\HealthCare.xml -Encoding Byte -ReadCount 0))
+
 ### Usage
 
 
