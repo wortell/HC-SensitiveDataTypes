@@ -12,6 +12,9 @@ The following Sensitive Information Types are included:
 *	Custom - healthcare care set 1 - Zorgplan
 *	Custom - healthcare care set 2 - DVO
 *	Custom - healthcare care set 3 - WMO
+*	Custom - healthcare care set 4 - Algemeen
+*	Custom - healthcare care set 5 - Zorg
+*	Custom - healthcare care set 6 - Administratie
 
 ## Why these Sensitive Information Types
 Microsoft 365 includes 100 sensitive Information Types up to now. While this a great numnber, it does not include localized Sensitive Information Types for the Dutch martket, besides BSN. This set is build to extend on the build-in types and allow you to faster implement services like DLP without the need of building sensitive information types from scratch yourself.
